@@ -7,16 +7,8 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.noetix.libnoetix.Callback;
-import com.noetix.libnoetix.FramePair;
 import com.noetix.libnoetix.IRobotSDKManager;
-
-import java.util.LinkedList;
-import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        IRobotSDKManager.getInstance().chatMode(false);
+        IRobotSDKManager.getInstance().chatMode(true);
         mDataReceiver = new DataReceiver();
 
 

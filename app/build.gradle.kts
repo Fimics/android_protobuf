@@ -18,8 +18,8 @@ android {
         versionCode = libs.versions.versionCode.get().toInt()
         versionName = libs.versions.versionName.get()
         ndk {
-            abiFilters.addAll(arrayOf("arm64-v8a"))
-//            abiFilters.addAll(arrayOf("armeabi-v7a"))
+//            abiFilters.addAll(arrayOf("arm64-v8a"))
+            abiFilters.addAll(arrayOf("armeabi-v7a"))
         }
     }
 
@@ -90,7 +90,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 //    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(files("libs/libNoetix.aar"))
+    implementation(files("libs/libNoetix-release.aar"))
     implementation("org.apache.commons:commons-csv:1.9.0")
 
 }

@@ -20,13 +20,13 @@ public class PcmStreamReader {
             inputStream = context.getAssets().open(fileName);
             int totalSize = inputStream.available();
             // 2. 设置读取缓冲区大小 (可根据需求调整)
-            byte[] buffer = new byte[409600]; // 4KB 缓冲区
+            byte[] buffer = new byte[16000]; // 4KB 缓冲区
             int bytesRead;
             
             // 3. 循环读取直到文件结束
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 // 每次读取到数据时回调
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 callback.onDataRead(buffer, bytesRead,totalSize);
             }
             

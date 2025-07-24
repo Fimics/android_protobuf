@@ -10,8 +10,8 @@ public class DemoApp extends Application {
     public void onCreate() {
         super.onCreate();
         IRobotSDKManager.getInstance().init();
-//        IRobotSDKManager.getInstance().enableLog(true);
-//        IRobotSDKManager.getInstance().saveAudioData(true);
+        IRobotSDKManager.getInstance().enableLog(true);
+        IRobotSDKManager.getInstance().saveAudioData(true);
     }
 
     @Override
