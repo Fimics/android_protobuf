@@ -27,7 +27,9 @@ public class PcmStreamReader {
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 // 每次读取到数据时回调
                 Thread.sleep(100);
+//                AudioAmplify.amplifyAll(buffer,1.5f);
                 callback.onDataRead(buffer, bytesRead,totalSize);
+                
             }
             
             // 4. 读取完成后回调
@@ -48,6 +50,7 @@ public class PcmStreamReader {
             }
         }
     }
+
 
     /**
      * 回调接口定义
