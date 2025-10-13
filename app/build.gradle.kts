@@ -90,7 +90,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 //    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(files("libs/libNoetix-release.aar"))
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(files("libs/libNoetix-debug.aar"))
     implementation("org.apache.commons:commons-csv:1.9.0")
 
 }

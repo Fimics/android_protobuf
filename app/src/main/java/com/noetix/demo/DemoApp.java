@@ -9,10 +9,11 @@ public class DemoApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        IRobotSDKManager.getInstance().init("/dev/ttyS1", "/dev/ttyACM0");
-        IRobotSDKManager.getInstance().init("", "");
+        CANShell.executeCanCommands();
         IRobotSDKManager.getInstance().enableLog(true);
-        IRobotSDKManager.getInstance().saveAudioData(true);
+        IRobotSDKManager.getInstance().init("","",2,false);
+        IRobotSDKManager.getInstance().setNeckRadiosDuration(new float[]{0.0f, 0.0f, 0.0f}, 5.0f);
+
     }
 
     @Override
