@@ -42,7 +42,7 @@ android {
                 "proguard-rules.pro"
             )
 
-//            signingConfig = signConfig
+            signingConfig = signConfig
         }
     }
 

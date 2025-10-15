@@ -1,20 +1,21 @@
 package com.noetix.demo;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.noetix.libnoetix.IRobotSDKManager;
+
 
 public class DemoApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-//        CANShell.executeCanCommands();
-//        android:sharedUserId="android.uid.system"
+        Log.d("DemoApp","onCreate");
         IRobotSDKManager.getInstance().enableLog(true);
-        IRobotSDKManager.getInstance().init("","",2,false);
-        IRobotSDKManager.getInstance().setNeckRadiosDuration(new float[]{0.0f, 0.0f, 0.0f}, 5.0f);
-
+//        IRobotSDKManager.getInstance().init("/dev/ttyS4","/dev/ttyS4",2,false);
+        IRobotSDKManager.getInstance().init("0","0",2,false);
+        IRobotSDKManager.getInstance().saveAudioData(true);
     }
 
     @Override
