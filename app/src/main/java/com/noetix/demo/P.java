@@ -3,7 +3,6 @@ package com.noetix.demo;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.noetix.libnoetix.utils.AppGlobals;
 
 public class P {
     private static P spManager = null;

@@ -12,10 +12,8 @@ public class DemoApp extends Application {
     public void onCreate() {
         super.onCreate();
         Log.d("DemoApp","onCreate");
-        IRobotSDKManager.getInstance().enableLog(true);
-//        IRobotSDKManager.getInstance().init("/dev/ttyS4","/dev/ttyS4",2,false);
-        IRobotSDKManager.getInstance().init("0","0",2,false);
-        IRobotSDKManager.getInstance().saveAudioData(true);
+        CANShell.executeCanCommands();
+
     }
 
     @Override

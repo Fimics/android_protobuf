@@ -9,6 +9,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.noetix.libnoetix.IRobotSDKManager;
+import com.noetix.libnoetix.RobotConfig;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,24 +34,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 IRobotSDKManager.getInstance().registerResultListener(mDataReceiver);
-                PcmStreamReader.readPcmStream(MainActivity.this, "tts.pcm", new PcmStreamReader.PcmStreamCallback() {
+                TaskExecutors.get().onIOTask(new Runnable() {
                     @Override
-                    public void onDataRead(byte[] buffer, int size, int totalSize) {
-                        Log.d(TAG,"onDataRead buffer size "+size);
-                        IRobotSDKManager.getInstance().processAudioStream(buffer,status);
-                        status=1;
-                    }
+                    public void run() {
+                        PcmStreamReader.readPcmStream(MainActivity.this, "tts.pcm", new PcmStreamReader.PcmStreamCallback() {
+                            @Override
+                            public void onDataRead(byte[] buffer, int size, int totalSize) {
+                                Log.d(TAG,"onDataRead buffer size "+size);
+                                IRobotSDKManager.getInstance().processAudioStream(buffer,status);
+                                status=1;
+                            }
 
-                    @Override
-                    public void onComplete() {
+                            @Override
+                            public void onComplete() {
 
-                    }
+                            }
 
-                    @Override
-                    public void onError(Exception e) {
+                            @Override
+                            public void onError(Exception e) {
 
+                            }
+                        });
                     }
                 });
+
             }
         });
     }
@@ -68,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         IRobotSDKManager.getInstance().unRegisterResultListener(mDataReceiver);
-        IRobotSDKManager.getInstance().unInit();
     }
 
     @Override

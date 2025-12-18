@@ -37,7 +37,7 @@
         tools:targetApi="28">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -47,6 +47,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".LiveFaceActivity"/>
 
     </application>
 

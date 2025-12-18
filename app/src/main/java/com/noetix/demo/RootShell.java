@@ -57,7 +57,6 @@ public final class RootShell {
     }
 
     public static String execCommand2(String cmd) {
-//        KLog.d(TAG, "run " + cmd);
         DataOutputStream dos = null;
         BufferedReader input = null;
         String result = null;
@@ -67,21 +66,19 @@ public final class RootShell {
             dos = new DataOutputStream(p.getOutputStream());
             input = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-//            KLog.d(TAG, cmd);
             dos.writeBytes(cmd + "\n");
             dos.flush();
             dos.writeBytes("exit\n");
             dos.flush();
             p.waitFor();
 
-            // Read the output
             StringBuilder output = new StringBuilder();
             String line;
             while ((line = input.readLine()) != null) {
                 output.append(line).append("\n");
             }
             result = output.toString();
-//            KLog.d(TAG, "run " + cmd + " result: " + result);
+
         } catch (Exception e) {
             KLog.d(TAG,e.getMessage());
             KLog.d(TAG,"执行命令失败");

@@ -42,6 +42,10 @@ public class DataReceiver implements Callback {
             float[] mergedCommands = createUpdatedBlendShapes(csvCommands, motorCommands);
             IRobotSDKManager.getInstance().setFaceAngles(mergedCommands);
         }
+    }
+
+    @Override
+    public void onNeckDataChanged(Map<String, Float> map) {
 
     }
 

@@ -18,7 +18,7 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "noetix_demo"
+rootProject.name = "noetix_demo_pb"
 include(":app")
 
 
