@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 
 public class CANShell {

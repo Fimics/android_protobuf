@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">demo</string>
+    <string name="app_name">demo_pb</string>
     <string name="ability_humanoid_detect" translatable="false">e10ffad9f</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

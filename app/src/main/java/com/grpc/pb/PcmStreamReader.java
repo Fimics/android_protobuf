@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.content.Context;
 import java.io.IOException;

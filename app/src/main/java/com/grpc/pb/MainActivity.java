@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.noetix.libnoetix.IRobotSDKManager;
-import com.noetix.libnoetix.RobotConfig;
 
 
 public class MainActivity extends AppCompatActivity {

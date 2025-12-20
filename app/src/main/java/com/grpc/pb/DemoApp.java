@@ -1,9 +1,7 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.app.Application;
 import android.util.Log;
-
-import com.noetix.libnoetix.IRobotSDKManager;
 
 
 public class DemoApp extends Application {

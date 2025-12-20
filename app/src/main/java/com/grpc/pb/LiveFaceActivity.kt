@@ -1,4 +1,4 @@
-package com.noetix.demo
+package com.grpc.pb
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import com.noetix.libnoetix.IRobotSDKManager
 import com.noetix.libnoetix.LiveFaceService
-import com.noetix.demo.R
 
 
 class LiveFaceActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.util.Log;
 
@@ -20,8 +20,7 @@ public class DataReceiver implements Callback {
     @Override
     public void onSynchronousResult(FramePair framePair, Map<String, Float> csvBlendShapes, LinkedList<FramePair> linkedList) {
 
-        //1.执行脖子动作
-        IRobotSDKManager.getInstance().setNecksWithBS(csvBlendShapes);
+
 
         if (framePair == null) {
             //2.只通过csv 执行
@@ -35,7 +34,7 @@ public class DataReceiver implements Callback {
 
             //4 .执行脸部动作
             Map<String, Float> blendShapes = framePair.getBlendShapeFrame();
-            Log.d(TAG,"执行 tss 生成的bs指令");
+            Log.d(TAG,"");
 //            Log.d(TAG, "blendShapes " + blendShapes.get("JawOpen"));
             float[] motorCommands = bs2MotorCommands(blendShapes);
             float[] csvCommands = bs2MotorCommands(csvBlendShapes);
@@ -46,7 +45,8 @@ public class DataReceiver implements Callback {
 
     @Override
     public void onNeckDataChanged(Map<String, Float> map) {
-
+        //1.执行脖子动作
+//        IRobotSDKManager.getInstance().setNecksWithBS(map);
     }
 
     private void sendOnlyCsvCommand(Map<String, Float> blendShapes) {

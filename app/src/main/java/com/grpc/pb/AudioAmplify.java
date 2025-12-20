@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 /**
  * 音频振幅放大和直流偏置调整

@@ -1,13 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+    id("com.google.protobuf")
 }
 
 android {
     compileSdk = libs.versions.compileSdk.get().toInt()
-    namespace = "com.noetix.demo"
+    namespace = "com.grpc.pb"
     defaultConfig {
-        applicationId = "com.noetix.robotics"
+        applicationId = "com.grpc.pb"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = libs.versions.versionCode.get().toInt()
@@ -93,9 +95,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.multidex:multidex:2.0.1")
 
-//    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.apache.commons:commons-csv:1.9.0")
     api("io.github.jeremyliao:live-event-bus-x:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("com.github.tonyofrancis.Fetch:fetch2:3.4.1")
+    api(libs.okhttp)
+    api(libs.logginginterceptor)
 
 }

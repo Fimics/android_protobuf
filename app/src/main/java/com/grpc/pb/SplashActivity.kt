@@ -1,4 +1,4 @@
-package com.noetix.demo
+package com.grpc.pb
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.noetix.libnoetix.IRobotSDKManager
 import com.noetix.libnoetix.RobotConfig
+import com.noetix.libnoetix.SDKListener
 
 class SplashActivity : AppCompatActivity() {
     private val mDataReceiver: DataReceiver? = null
@@ -41,7 +42,7 @@ class SplashActivity : AppCompatActivity() {
         })
     }
 
-    private fun initSDK() {
+    private fun initSDK(){
         val robotConfig = RobotConfig.Builder(this)
             .enableLog(true)
             .setSerialPort("")
@@ -50,8 +51,18 @@ class SplashActivity : AppCompatActivity() {
             .setUAppKey("")
             .setUChannel("")
             .setNeckType(2)
+            .setDelaySeconds(5)
             .setExt("")
             .build()
+        IRobotSDKManager.getInstance().setSDKListener(object : SDKListener {
+            override fun onSuccess() {
+                KLog.d("init ","sdk 初始化成功...")
+            }
+
+            override fun onFail() {
+                KLog.d("init ","sdk 初始化失败...")
+            }
+        })
         IRobotSDKManager.getInstance().init(robotConfig)
     }
 

@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.app.Application;
 import android.content.pm.ApplicationInfo;

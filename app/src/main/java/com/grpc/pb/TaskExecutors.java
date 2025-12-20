@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;

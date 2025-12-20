@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context="com.grpc.pb.MainActivity">
 
 
     <androidx.appcompat.widget.AppCompatButton

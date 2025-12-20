@@ -1,4 +1,4 @@
-package com.noetix.demo;
+package com.grpc.pb;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
