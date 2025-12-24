@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "com.grpc.pb.protos";  // 明确的包名
+//option java_outer_classname = "MessageProto";
+option java_multiple_files = true;  // 每个消息生成单独类
+
+package pb;
+
+message Request {
+    string message = 1;
+    int32 user_id = 2;
+}
+
+// 响应消息
+message Response {
+    string reply = 1;
+    bool success = 2;
+    int32 code = 3;
+}
+
+// 服务定义 - 使用 service 关键字
+service ChatService {
+    rpc SendMessage(Request) returns (Response);
+}

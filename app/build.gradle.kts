@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"  // 修正版本号
     id("com.google.protobuf")
 }
 
@@ -16,8 +16,7 @@ android {
         versionName = libs.versions.versionName.get()
         multiDexEnabled = true
         ndk {
-              abiFilters.addAll(arrayOf("arm64-v8a"))
-//            abiFilters.addAll(arrayOf("armeabi-v7a"))
+            abiFilters.addAll(arrayOf("arm64-v8a"))
         }
     }
 
@@ -39,41 +38,27 @@ android {
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
-
             signingConfig = signConfig
         }
     }
-
-
-//    packagingOptions {
-//        exclude("**/*.so")
-//    }
 
     buildFeatures {
         buildConfig = true
         viewBinding = true
     }
 
+    // 正确的 sourceSets 配置 - 使用 Kotlin DSL 语法
     sourceSets {
         getByName("main") {
             jniLibs.srcDirs("libs")
-            assets {
-                srcDirs("src/main/assets")
-            }
+            assets.srcDirs("src/main/assets")
         }
     }
-    buildFeatures {
-        viewBinding = true
-    }
-
-
 }
 
 dependencies {
     implementation(fileTree(mapOf("includes" to listOf("*.aar", "*.jar"), "dir" to "libs")))
     implementation(files("libs/libNoetix-debug.aar"))
-
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -103,4 +88,37 @@ dependencies {
     api(libs.okhttp)
     api(libs.logginginterceptor)
 
+    // gRPC 依赖 - 使用正确的 Kotlin DSL 语法
+    implementation("io.grpc:grpc-okhttp:1.61.0")
+    implementation("io.grpc:grpc-protobuf-lite:1.61.0")
+    implementation("io.grpc:grpc-stub:1.61.0")
+    implementation("com.google.protobuf:protobuf-javalite:3.25.1")
+    compileOnly("org.apache.tomcat:annotations-api:6.0.53")
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.1"
+    }
+
+    plugins {
+        create("grpc") {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.61.0"
+        }
+    }
+
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+            task.plugins {
+                create("grpc") {
+                    option("lite")
+                }
+            }
+        }
+    }
 }

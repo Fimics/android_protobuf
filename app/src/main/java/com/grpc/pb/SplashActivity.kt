@@ -26,6 +26,7 @@ class SplashActivity : AppCompatActivity() {
 
         val btnChat = this.findViewById<AppCompatButton>(R.id.btn_chat)
         val btnTrack = this.findViewById<AppCompatButton>(R.id.btn_track)
+        val btnGrpc = this.findViewById<AppCompatButton>(R.id.btn_grpc)
 
         btnChat.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -40,6 +41,11 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(trackIntent)
             }
         })
+
+        btnGrpc.setOnClickListener {
+            val grpcIntent = Intent(this@SplashActivity, PBMainActivity::class.java)
+            startActivity(grpcIntent)
+        }
     }
 
     private fun initSDK(){
