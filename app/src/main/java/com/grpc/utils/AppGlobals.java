@@ -1,4 +1,4 @@
-package com.grpc.pb;
+package com.grpc.utils;
 
 import android.app.Application;
 import android.content.pm.ApplicationInfo;

@@ -7,6 +7,8 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
+import com.grpc.utils.KLog
+import com.grpc.utils.TaskExecutors
 import com.noetix.libnoetix.IRobotSDKManager
 import com.noetix.libnoetix.LiveFaceService
 

@@ -1,4 +1,4 @@
-package com.grpc.pb;
+package com.grpc.utils;
 
 import android.content.Context;
 import java.io.IOException;

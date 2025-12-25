@@ -1,4 +1,4 @@
-package com.grpc.pb;
+package com.grpc.utils;
 
 /**
  * 音频振幅放大和直流偏置调整

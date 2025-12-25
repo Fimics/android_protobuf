@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.grpc.utils.KLog
 import com.noetix.libnoetix.IRobotSDKManager
 import com.noetix.libnoetix.RobotConfig
 import com.noetix.libnoetix.SDKListener

@@ -21,7 +21,7 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
 
 public class PBMainActivity extends AppCompatActivity {
-    private static final String TAG = "PbDemo";
+    private static final String TAG = "PBMainActivity";
 
     private EditText etServerIp, etMessage, etUserId;
     private Button btnSend;
@@ -46,8 +46,11 @@ public class PBMainActivity extends AppCompatActivity {
         tvResponse = findViewById(R.id.tv_response);
 
         // 设置默认值
-        etServerIp.setText("192.168.101.139");
-        etUserId.setText("50051");
+//        etServerIp.setText("192.168.101.139");
+//        etUserId.setText("50051");
+
+        etServerIp.setText("182.48.100.11");
+        etUserId.setText("52000");
     }
 
     private void setupClickListeners() {
@@ -86,7 +89,7 @@ public class PBMainActivity extends AppCompatActivity {
 
             try {
                 // 创建gRPC通道
-                channel = ManagedChannelBuilder.forAddress(serverIp, 50051)
+                channel = ManagedChannelBuilder.forAddress(serverIp, 52000)
                         .usePlaintext() // 开发环境使用，生产环境应该使用TLS
                         .build();
 

@@ -1,7 +1,9 @@
-package com.grpc.pb;
+package com.grpc;
 
 import android.app.Application;
 import android.util.Log;
+
+import com.grpc.utils.CANShell;
 
 
 public class DemoApp extends Application {

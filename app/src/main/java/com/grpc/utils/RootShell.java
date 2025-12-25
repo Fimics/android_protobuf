@@ -1,4 +1,4 @@
-package com.grpc.pb;
+package com.grpc.utils;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
