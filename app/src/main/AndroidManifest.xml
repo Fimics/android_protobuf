@@ -49,6 +49,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LiveFaceActivity" />
         <activity android:name=".PBMainActivity" android:exported="false" />
+        <activity android:name="com.grpc.nvidia.NvidiaActivity"/>
     </application>
 
 </manifest>

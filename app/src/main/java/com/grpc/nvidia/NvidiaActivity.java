@@ -1,4 +1,4 @@
-package com.grpc.pb;
+package com.grpc.nvidia;
 
 
 import android.os.AsyncTask;
@@ -12,15 +12,17 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.grpc.pb.R;
 import com.grpc.pb.protos.ChatServiceGrpc;
 import com.grpc.pb.protos.Request;
 import com.grpc.pb.protos.Response;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
 
-public class PBMainActivity extends AppCompatActivity {
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+
+public class NvidiaActivity extends AppCompatActivity {
     private static final String TAG = "PBMainActivity";
 
     private EditText etServerIp, etMessage, etUserId;
@@ -33,7 +35,7 @@ public class PBMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_protobuf);
+        setContentView(R.layout.activity_nvidia);
         initViews();
         setupClickListeners();
     }

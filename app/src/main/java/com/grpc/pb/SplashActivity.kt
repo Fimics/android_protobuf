@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.grpc.nvidia.NvidiaActivity
 import com.grpc.utils.KLog
 import com.noetix.libnoetix.IRobotSDKManager
 import com.noetix.libnoetix.RobotConfig
@@ -28,6 +29,7 @@ class SplashActivity : AppCompatActivity() {
         val btnChat = this.findViewById<AppCompatButton>(R.id.btn_chat)
         val btnTrack = this.findViewById<AppCompatButton>(R.id.btn_track)
         val btnGrpc = this.findViewById<AppCompatButton>(R.id.btn_grpc)
+        val btnNvidia = this.findViewById<AppCompatButton>(R.id.btn_nvidia)
 
         btnChat.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -46,6 +48,11 @@ class SplashActivity : AppCompatActivity() {
         btnGrpc.setOnClickListener {
             val grpcIntent = Intent(this@SplashActivity, PBMainActivity::class.java)
             startActivity(grpcIntent)
+        }
+
+        btnNvidia.setOnClickListener {
+            val nvidiaIntent = Intent(this@SplashActivity, NvidiaActivity::class.java)
+            startActivity(nvidiaIntent)
         }
     }
 
